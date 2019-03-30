@@ -4,40 +4,100 @@ using UnityEngine;
 
 public class Attacher : MonoBehaviour
 {
-    public float speed; //floating point variable to store the player's movement speed.
+    public bool grabbed;
+    RaycastHit2D hit;
+    public float distance = 2f;
+    public Transform holdpoint;
 
-    private Rigidbody2D rb2d; //store a reference to the RigidBody2D component required to use 2D Physics.
+    Collider2D touchingCollider = null;
+    //List<Collider> grabableColliders = new List<Collider>();
 
-    //Use this for initialization
     private void Start()
     {
-        //Get and store a reference to the Rigidbody2D component so that we can access it.
-        rb2d = GetComponent<Rigidbody2D>();
+
     }
 
-    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
-    void FixedUpdate()
+
+    void Update()
     {
-        //Store the current horizontal input in the float moveHorizontal.
-        float moveHorizontal = Input.GetAxis("Horizontal");
-
-        //Store the current vertical input in the float moveVertical.
-        float moveVertical = Input.GetAxis("Vertical");
-
-        //Use the two store floats to create a new Vector2 variable movement.
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-
-        //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
-        rb2d.AddForce(movement * speed);
-    }
-
-    //OnTriggerEnter2D is called whenever this object overlaps with a trigger collider.
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //Check the provided Collider2D parameter other to see if it is tagged "PickUp", if it is...
-        if (other.gameObject.CompareTag("PickUp"))
+        if (Input.GetKeyDown(KeyCode.B))
         {
-            other.gameObject.SetActive(false);
+            if(touchingCollider != null)
+            {
+                touchingCollider.gameObject.transform.SetParent(this.transform);
+
+            }
+
+
+            if (!grabbed)
+            {
+                //Physics2D.raycastStartInCollider = false;
+
+                //hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance);
+                //if (hit.collider != null)
+                //{
+                //    grabbed = true;
+                //}
+            }
+            else
+            {
+
+            }
+        }
+        if (grabbed)
+            hit.collider.gameObject.transform.position = holdpoint.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "grabbable")
+        {
+            Debug.Log("ENTER!");
+            touchingCollider = other;
+            //if(grabableColliders.Contains(other) == false)
+            //{
+            //    grabableColliders.Add(other);
+            //}
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "grabbable")
+        {
+            Debug.Log("EXIT!");
+            touchingCollider = null;
+            //if (grabableColliders.Contains(other) == true)
+            //{
+            //    grabableColliders.Remove(other);
+            //}
+        }
+    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Collider2D other = collision.otherCollider;
+    //    if (other.gameObject.tag == "grabbable")
+    //    {
+    //        Debug.Log("ENTER!");
+    //        touchingCollider = other;
+    //        //if(grabableColliders.Contains(other) == false)
+    //        //{
+    //        //    grabableColliders.Add(other);
+    //        //}
+    //    }
+    //}
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    Collider2D other = collision.otherCollider;
+    //    if (other.gameObject.tag == "grabbable")
+    //    {
+    //        Debug.Log("EXIT!");
+    //        touchingCollider = null;
+    //        //if (grabableColliders.Contains(other) == true)
+    //        //{
+    //        //    grabableColliders.Remove(other);
+    //        //}
+    //    }
+    //}
 }
