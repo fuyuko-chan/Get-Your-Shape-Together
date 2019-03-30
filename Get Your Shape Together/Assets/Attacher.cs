@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Controller : MonoBehaviour
+public class Attacher : MonoBehaviour
 {
     public float speed; //floating point variable to store the player's movement speed.
 
