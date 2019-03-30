@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Attacher : MonoBehaviour
 {
-    public bool grabbed;
-    RaycastHit2D hit;
-    public float distance = 2f;
-    public Transform holdpoint;
+    //public bool grabbed;
+    //RaycastHit2D hit;
+    //public float distance = 2f;
+    //public Transform holdpoint;
 
     Collider2D touchingCollider = null;
     //List<Collider> grabableColliders = new List<Collider>();
@@ -29,8 +29,8 @@ public class Attacher : MonoBehaviour
             }
 
 
-            if (!grabbed)
-            {
+            //if (!grabbed)
+            //{
                 //Physics2D.raycastStartInCollider = false;
 
                 //hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance);
@@ -39,13 +39,13 @@ public class Attacher : MonoBehaviour
                 //    grabbed = true;
                 //}
             }
-            else
-            {
+            //else
+            //{
 
-            }
-        }
-        if (grabbed)
-            hit.collider.gameObject.transform.position = holdpoint.position;
+            //}
+        //}
+        //if (grabbed)
+            //hit.collider.gameObject.transform.position = holdpoint.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
