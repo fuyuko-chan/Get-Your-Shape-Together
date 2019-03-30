@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 825114977}
   - component: {fileID: 825114976}
   - component: {fileID: 825114978}
+  - component: {fileID: 825114979}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Untagged
@@ -396,6 +397,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &825114979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825114975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894b55114ba88d046991478db34b1242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1165320352
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,9 +501,10 @@ GameObject:
   - component: {fileID: 1426376790}
   - component: {fileID: 1426376789}
   - component: {fileID: 1426376793}
+  - component: {fileID: 1426376794}
   m_Layer: 0
-  m_Name: Triangle
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -580,7 +594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426376788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.566135, y: -0.109974235, z: 0}
+  m_LocalPosition: {x: 1.95, y: -0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -599,6 +613,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+--- !u!58 &1426376794
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426376788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1940248505
 GameObject:
   m_ObjectHideFlags: 0
