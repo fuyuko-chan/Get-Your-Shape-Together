@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 1426376791}
   - component: {fileID: 1426376790}
   - component: {fileID: 1426376789}
+  - component: {fileID: 1426376793}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -489,6 +490,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1426376793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426376788}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2688392f8ed2c14d973539b20b944fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1940248505
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +514,6 @@ GameObject:
   - component: {fileID: 1940248507}
   - component: {fileID: 1940248506}
   - component: {fileID: 1940248508}
-  - component: {fileID: 1940248509}
   - component: {fileID: 1940248510}
   - component: {fileID: 1940248511}
   m_Layer: 0
@@ -588,19 +601,6 @@ MonoBehaviour:
   pressDown: 115
   pressLeft: 97
   pressRight: 100
---- !u!114 &1940248509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940248505}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2688392f8ed2c14d973539b20b944fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
 --- !u!58 &1940248510
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940248505}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
