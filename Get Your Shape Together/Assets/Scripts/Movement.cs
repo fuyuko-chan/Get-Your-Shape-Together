@@ -57,6 +57,7 @@ void Update()
             transform.position = new Vector2(transform.position.x, 3.8f);
         }
 
+
     }
 
 
