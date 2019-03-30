@@ -283,6 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468198230}
   - component: {fileID: 1468198229}
+  - component: {fileID: 1468198231}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -352,6 +353,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1468198231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468198228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c8f9eda5f469a4f95830d55a7979db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressShift: 0
+  pressUp: 0
+  pressDown: 0
+  pressLeft: 0
+  pressRight: 0
 --- !u!1 &1497920706
 GameObject:
   m_ObjectHideFlags: 0
