@@ -56,8 +56,7 @@ public class Triangle : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, 3.8f);
         }
-        // allows collsion with objects with collider
-        Vector3 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        
 
 
 
