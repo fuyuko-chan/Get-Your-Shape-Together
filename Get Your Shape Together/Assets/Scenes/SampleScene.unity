@@ -1196,6 +1196,7 @@ GameObject:
   - component: {fileID: 1426376793}
   - component: {fileID: 1426376795}
   - component: {fileID: 1426376794}
+  - component: {fileID: 1426376796}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1356,10 +1357,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2688392f8ed2c14d973539b20b944fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabbed: 0
-  distance: 2
-  holdpoint: {fileID: 0}
   attachedShapes: []
+--- !u!114 &1426376796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426376788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a581ddf0a47c27429d234e0d21d2e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shapegoal: 0
 --- !u!1 &1813342069
 GameObject:
   m_ObjectHideFlags: 0
