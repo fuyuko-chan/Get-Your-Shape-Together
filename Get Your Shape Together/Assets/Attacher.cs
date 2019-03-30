@@ -34,9 +34,10 @@ public class Attacher : MonoBehaviour
     //OnTriggerEnter2D is called whenever this object overlaps with a trigger collider.
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag ("PickUp"))
+        //Check the provided Collider2D parameter other to see if it is tagged "PickUp", if it is...
+        if (other.gameObject.CompareTag("PickUp"))
         {
-            other.gameObject.SetActive (false);
+            other.gameObject.SetActive(false);
         }
     }
 }
