@@ -21,7 +21,7 @@ public class Rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+                    
         if (Input.GetKeyDown(pressUp))
             GetComponent<Transform>().eulerAngles = new Vector3(0, 0, 0);
         if (Input.GetKeyDown(pressDown))
@@ -30,6 +30,6 @@ public class Rotation : MonoBehaviour
             GetComponent<Transform>().eulerAngles = new Vector3(0, 0, 90);
         if (Input.GetKeyDown(pressRight))
             GetComponent<Transform>().eulerAngles = new Vector3(0, 0, -90);
-
+        
     }
 }
