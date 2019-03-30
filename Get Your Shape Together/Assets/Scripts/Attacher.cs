@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Attacher : MonoBehaviour
 {
-    public bool grabbed;
-    RaycastHit2D hit;
-    public float distance = 2f;
-    public Transform holdpoint;
-
     Collider2D touchingCollider = null;
     List<Collider2D> grabableColliders = new List<Collider2D>();
 
     public List<GameObject> attachedShapes = new List<GameObject>();
+    private int Shapegoal;
 
     private void Start()
     {
@@ -78,7 +74,24 @@ public class Attacher : MonoBehaviour
             //    grabableColliders.Remove(other);
             //}
         }
+
+        
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "grabbable")
+        {
+
+            Shapegoal++;
+            
+        }
+        if (Shapegoal >= 3)
+        {
+            Debug.Log("Loaded!");
+            Application.LoadLevel("Credits");
+        }
+    }
+
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
