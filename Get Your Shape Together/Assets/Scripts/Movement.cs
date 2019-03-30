@@ -60,6 +60,7 @@ public class Triangle : MonoBehaviour
         Vector3 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
 
+
     }
 }
        
