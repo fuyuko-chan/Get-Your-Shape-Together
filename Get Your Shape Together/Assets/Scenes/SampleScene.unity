@@ -446,11 +446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c8f9eda5f469a4f95830d55a7979db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressShift: 304
-  pressUp: 273
-  pressDown: 274
-  pressLeft: 276
-  pressRight: 275
+  pressUp: 119
+  pressDown: 115
+  pressLeft: 97
+  pressRight: 100
 --- !u!114 &1940248509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,7 +470,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940248505}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
