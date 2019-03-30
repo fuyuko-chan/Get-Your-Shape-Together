@@ -4,40 +4,44 @@ using UnityEngine;
 
 public class Attacher : MonoBehaviour
 {
-    public float speed; //floating point variable to store the player's movement speed.
-
-    private Rigidbody2D rb2d; //store a reference to the RigidBody2D component required to use 2D Physics.
-
-    //Use this for initialization
-    private void Start()
+    void setDrop()
     {
-        //Get and store a reference to the Rigidbody2D component so that we can access it.
-        rb2d = GetComponent<Rigidbody2D>();
-    }
+        // Remove Item from player parent 
+        Pickup.transform.parent = null;
+        pickedItem.rigidbody2D.isKinematic = true;
 
-    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
-    void FixedUpdate()
-    {
-        //Store the current horizontal input in the float moveHorizontal.
-        float moveHorizontal = Input.GetAxis("Horizontal");
-
-        //Store the current vertical input in the float moveVertical.
-        float moveVertical = Input.GetAxis("Vertical");
-
-        //Use the two store floats to create a new Vector2 variable movement.
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-
-        //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
-        rb2d.AddForce(movement * speed);
-    }
-
-    //OnTriggerEnter2D is called whenever this object overlaps with a trigger collider.
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //Check the provided Collider2D parameter other to see if it is tagged "PickUp", if it is...
-        if (other.gameObject.CompareTag("PickUp"))
+        //Set New Position to drop item
+        float newY, newX;
+        if (playerLookY == -1)
         {
-            other.gameObject.SetActive(false);
+            // Looking up: Use Player Collider Size + Y position
+            newY = (transform.collider2D.bounds.size.y + 0.02f) * -1F;
         }
+        else if (playerLookY == 1)
+        {
+            // Looking down: Use item Collider Size + Y position
+            newY = pickedItem.collider2D.bounds.size.y + 0.02f;
+        }
+        else
+        {
+            // Adjust object to the player foot
+            newY = (transform.collider2D.bounds.size.y - pickedItem.collider2D.bounds.size.y) * -1;
+        }
+        // Since X collider is in X = 0, the logis is simplier
+        newX = (pickedItem.collider2D.bounds.size.x + 0.02f) * playerLookX;
+        //Set New Position to drop item
+        pickedItem.rigidbody2D.position =
+            new Vector2(
+                (transform.position.x + newX),
+                (transform.position.y + newY)
+            );
+
+        // Adjust Object Layer
+        pickedItem.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+        // Adjust Object Order
+        pickedItem.GetComponent<SpriteRenderer>().sortingOrder = (int)((10 * ((transform.position.y + (playerLookY * 0.25f)) * -1)));
+        // Set no item is picked
+        pickedItem = null;
+        picking = false;
     }
 }
