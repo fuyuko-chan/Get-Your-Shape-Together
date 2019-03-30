@@ -20,7 +20,7 @@ public class Attacher : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if(touchingCollider != null)
             {
@@ -29,7 +29,7 @@ public class Attacher : MonoBehaviour
             }
 
 
-            if (!grabbed)
+           // if (!grabbed)
             {
                 //Physics2D.raycastStartInCollider = false;
 
@@ -39,13 +39,22 @@ public class Attacher : MonoBehaviour
                 //    grabbed = true;
                 //}
             }
-            else
+           // else
             {
 
             }
         }
-        if (grabbed)
-            hit.collider.gameObject.transform.position = holdpoint.position;
+        // if (grabbed)
+        // hit.collider.gameObject.transform.position = holdpoint.position;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (touchingCollider != null)
+            {
+                transform.DetachChildren();
+
+            }
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
