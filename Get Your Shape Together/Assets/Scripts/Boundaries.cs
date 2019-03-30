@@ -18,24 +18,25 @@ public class Boundaries : MonoBehaviour
     void Update()
     {
         // border X axis
-        if (transform.position.x <= -10.5f)
+        if (transform.position.x <= -11.9f)
         {
-            transform.position = new Vector2(-10.5f, transform.position.y);
+            transform.position = new Vector2(-11.9f, transform.position.y);
         }
-        else if (transform.position.x >= 10.5f)
+        else if (transform.position.x >= 11.9f)
         {
-            transform.position = new Vector2(10.5f, transform.position.y);
+            transform.position = new Vector2(11.9f, transform.position.y);
         }
 
         // border Y axis
-        if (transform.position.y <= -3.8f)
+        if (transform.position.y <= -4.8f)
         {
-            transform.position = new Vector2(transform.position.x, -3.8f);
+            transform.position = new Vector2(transform.position.x, -4.8f);
         }
-        else if (transform.position.y >= 3.8f)
+        else if (transform.position.y >= 4.8f)
         {
-            transform.position = new Vector2(transform.position.x, 3.8f);
+            transform.position = new Vector2(transform.position.x, 4.8f);
         }
+
 
     }
 }

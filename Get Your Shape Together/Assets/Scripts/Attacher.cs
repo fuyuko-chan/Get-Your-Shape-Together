@@ -12,6 +12,8 @@ public class Attacher : MonoBehaviour
     Collider2D touchingCollider = null;
     List<Collider2D> grabableColliders = new List<Collider2D>();
 
+    public List<GameObject> attachedShapes = new List<GameObject>();
+
     private void Start()
     {
 
@@ -22,35 +24,30 @@ public class Attacher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if(touchingCollider != null)
+            if(touchingCollider != null && touchingCollider.gameObject != this.gameObject)
             {
-                touchingCollider.gameObject.transform.SetParent(this.transform);
+                if (attachedShapes.Contains(touchingCollider.gameObject) == false) 
+                {
+                    Destroy(touchingCollider.attachedRigidbody);
+                
+                    touchingCollider.gameObject.transform.SetParent(this.transform);
 
-            }
-
-
-           // if (!grabbed)
-            {
-                //Physics2D.raycastStartInCollider = false;
-
-               //hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance);
-               //if (hit.collider != null)
-                //{
-                //    grabbed = true;
-                //}
-            }
-           // else
-            {
-
+                    attachedShapes.Add(touchingCollider.gameObject);
+                }
             }
         }
-        // if (grabbed)
-        // hit.collider.gameObject.transform.position = holdpoint.position;
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (touchingCollider != null)
             {
-                transform.DetachChildren();
+                foreach (GameObject go in attachedShapes)
+                {
+                    Rigidbody2D rb = go.AddComponent<Rigidbody2D>();
+                    rb.isKinematic = true;
+                    go.transform.SetParent(null);
+                }
+                attachedShapes.Clear();
+                //transform.DetachChildren();
 
             }
         }
@@ -63,10 +60,10 @@ public class Attacher : MonoBehaviour
         {
             Debug.Log("ENTER!");
             touchingCollider = other;
-            if(grabableColliders.Contains(other) == false)
-            {
-                grabableColliders.Add(other);
-            }
+            //if(grabableColliders.Contains(other) == false)
+            //{
+            //    grabableColliders.Add(other);
+            //}
         }
     }
 
@@ -76,10 +73,10 @@ public class Attacher : MonoBehaviour
         {
             Debug.Log("EXIT!");
             touchingCollider = null;
-            if (grabableColliders.Contains(other) == true)
-            {
-                grabableColliders.Remove(other);
-            }
+            //if (grabableColliders.Contains(other) == true)
+            //{
+            //    grabableColliders.Remove(other);
+            //}
         }
     }
 
