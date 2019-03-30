@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PickerUpper : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public GameObject pickupEffect;
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -14,6 +16,11 @@ public class PickerUpper : MonoBehaviour
 
     void Pickup()
     {
-        Debug.Log("Picked up a pick up!");
+
+        Instantiate(pickupEffect, transform.position, transform.rotation);
+
+        //apply effect to the player
+
+        Destroy(gameObject);
     }
 }
