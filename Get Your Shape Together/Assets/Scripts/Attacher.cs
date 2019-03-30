@@ -46,6 +46,15 @@ public class Attacher : MonoBehaviour
         //}
         //if (grabbed)
             //hit.collider.gameObject.transform.position = holdpoint.position;
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            if (touchingCollider != null)
+            {
+                transform.DetachChildren(this.transform);
+
+            }
+        }
+            
     }
 
     private void OnTriggerEnter2D(Collider2D other)
