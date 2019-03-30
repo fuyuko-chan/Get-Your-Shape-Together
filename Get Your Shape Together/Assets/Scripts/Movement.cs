@@ -37,8 +37,27 @@ void Update()
             position.y -= speed;
             transform.position = position;
         }
+        // X axis
+        if (transform.position.x <= -10.5f)
+        {
+            transform.position = new Vector2(-10.5f, transform.position.y);
+        }
+        else if (transform.position.x >= 10.5f)
+        {
+            transform.position = new Vector2(10.5f, transform.position.y);
+        }
 
-}
+        // Y axis
+        if (transform.position.y <= -3.8f)
+        {
+            transform.position = new Vector2(transform.position.x, -3.8f);
+        }
+        else if (transform.position.y >= 3.8f)
+        {
+            transform.position = new Vector2(transform.position.x, 3.8f);
+        }
+
+    }
 
 
 
