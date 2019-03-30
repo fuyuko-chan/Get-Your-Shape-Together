@@ -38,23 +38,23 @@ public class Movement : MonoBehaviour
             transform.position = position;
         }
         // border X axis
-        if (transform.position.x <= -11.9f)
+        if (transform.position.x <= -11.6f)
         {
-            transform.position = new Vector2(-11.9f, transform.position.y);
+            transform.position = new Vector2(-11.6f, transform.position.y);
         }
-        else if (transform.position.x >= 11.9f)
+        else if (transform.position.x >= 11.6f)
         {
-            transform.position = new Vector2(11.9f, transform.position.y);
+            transform.position = new Vector2(11.6f, transform.position.y);
         }
 
         // border Y axis
-        if (transform.position.y <= -4.8f)
+        if (transform.position.y <= -6.0f)
         {
-            transform.position = new Vector2(transform.position.x, -4.8f);
+            transform.position = new Vector2(transform.position.x, -6.0f);
         }
-        else if (transform.position.y >= 4.8f)
+        else if (transform.position.y >= 6.0f)
         {
-            transform.position = new Vector2(transform.position.x, 4.8f);
+            transform.position = new Vector2(transform.position.x, 6.0f);
         }
 
 
